@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Caminho Seguro - MapLibre 3D</title>
+  
+  <!-- Bibliotecas externas (MapLibre, Ícones e Fontes) -->
+  <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" /> <!-- Nosso CSS -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <!-- ELEMENTOS FLUTUANTES NO MAPA -->
+  <div class="user-location" id="user-location">
+    <div class="user-location-inner"></div>
+  </div>
+
+  <div class="crosshair" id="crosshair"><i class="ph-fill ph-map-pin"></i></div>
+
+  <!-- CARD FLUTUANTE -->
+  <div class="news-card-floating show" id="news-card-floating">
+    <div class="news-image"></div>
+    <div class="news-content">
+      <div class="news-tag"><i class="ph-fill ph-warning"></i> Notícia</div>
+      <div class="news-title">Baixa iluminação na região</div>
+      <div class="news-desc">Trecho com movimentação reduzida.</div>
+      <div class="news-time"><i class="ph ph-clock"></i> Há 2 horas</div>
+    </div>
+  </div>
+
+  <div class="ui-layer">
+    <header>
+      <div class="logo">
+        <i class="ph-fill ph-map-pin"></i>
+        Caminho<br>Seguro
+      </div>
+      <div class="btn-compass">
+        <i class="ph-fill ph-navigation-arrow"></i>
+      </div>
+    </header>
+
+    <!-- BARRA DE AÇÃO -->
+    <div class="action-bar" id="action-bar">
+      <span id="action-text">...</span>
+      <div class="action-buttons">
+        <button id="btn-confirm-action" class="btn-green" style="display:none;">Finalizar</button>
+        <button id="btn-cancel-action" class="btn-red">Cancelar</button>
+      </div>
+    </div>
+
+    <div class="map-controls">
+      <div class="control-btn" id="btn-zoom-in"><i class="ph ph-plus"></i></div>
+      <div class="control-btn" id="btn-zoom-out"><i class="ph ph-minus"></i></div>
+    </div>
+
+    <!-- PAINEL INFERIOR -->
+    <div class="news-panel" id="news-panel">
+      <h2>Gerenciar Avisos</h2>
+      <input type="text" id="alert-title" placeholder="Título do aviso..." />
+      
+      <div class="btn-group">
+        <button id="btn-mode-pin">
+          <i class="ph-fill ph-map-pin"></i> Fixar Ponto Central
+        </button>
+        <button id="btn-mode-area" class="orange">
+          <i class="ph-fill ph-polygon"></i> Desenhar Área de Risco
+        </button>
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <a class="nav-item active" id="nav-map"><i class="ph-fill ph-map-trifold"></i> Mapa</a>
+      <a class="nav-item" id="nav-news"><i class="ph ph-newspaper"></i> Notícias</a>
+    </div>
+  </div>
+
+  <!-- Bibliotecas externas e Nosso JS -->
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+  <script src="script.js"></script> 
+</body>
+</html>
