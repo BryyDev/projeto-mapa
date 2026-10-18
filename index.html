@@ -40,7 +40,6 @@
   <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
 
   <script>
-    // 1. Inicializa o mapa (Ele começa em São Paulo por padrão)
     const map = new maplibregl.Map({
       container: 'map',
       style: 'https://api.maptiler.com/maps/streets-v2-dark/style.json?key=1210fmf60PURWzVOx1Ow',
@@ -52,10 +51,9 @@
 
     map.dragRotate.enable(); 
     map.touchZoomRotate.enableRotation();
-
-    // 2. A MÁGICA ACONTECE AQUI: Pedindo a localização ao navegador
+    
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
+      navgator.geolocation.getCurrentPosition(
         // Se o usuário permitir a localização:
         (position) => {
           const lon = position.coords.longitude;
@@ -63,7 +61,6 @@
 
           console.log("Sua localização:", lon, lat);
 
-          // O MapLibre "voa" até a sua localização atual
           map.flyTo({
             center: [lon, lat], // Suas coordenadas reais
             zoom: 16,           // Aproxima um pouco mais
@@ -72,7 +69,7 @@
             duration: 3000      // Demora 3 segundos para fazer o voo
           });
         },
-        // Se o usuário negar ou der erro:
+
         (error) => {
           console.error("Erro ao obter localização:", error);
           alert("Não foi possível obter sua localização. Verifique as permissões do navegador.");
@@ -82,7 +79,6 @@
       alert("Seu navegador não suporta geolocalização.");
     }
 
-    // 3. Deixando os prédios escuros
     map.on('load', () => {
       const layers = map.getStyle().layers;
       layers.forEach(layer => {
