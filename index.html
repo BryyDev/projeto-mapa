@@ -10,10 +10,31 @@
   <style>
     body { margin: 0; padding: 0; background-color: #121417; }
     #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    .botao{
+      z-index: 100;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0);
+      padding: .625rem;
+      border-radius: 4px;
+      margin-top: 10px;
+      margin-left: 10px;
+      border: solid black 3px;
+      cursor: pointer;
+
+      & a{
+        text-decoration: none;
+        font-weight: 700;
+        color: black;
+      }
+
+    }
   </style>
 </head>
 <body>
 
+  <div class="botao">
+  <a href="teste/index.html">mapa dvdd</a>
+  </div>
   <div id="map"></div>
 
   <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
